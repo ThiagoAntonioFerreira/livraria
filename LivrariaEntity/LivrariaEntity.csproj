@@ -70,6 +70,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Script\script.sql" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model\Model.edmx">
