@@ -1,0 +1,100 @@
+﻿@model LivrariaWeb.Models.LivroModel
+@{
+    ViewBag.Title = "Aluno";
+}
+
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+    </script>
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="/Livro">Livros</a>
+        </li>
+        <li class="active">Cadastro</li>
+    </ul><!-- /.breadcrumb -->
+    <!-- #section:basics/content.searchbox -->
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <form class="form-horizontal" role="form" action="/Livro/Salvar">
+                <!-- #section:elements.form -->
+                @Html.HiddenFor(m => m.id_livro)
+                <div class="form-group">
+                    @Html.LabelFor(m => m.titulo, new { @class= "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.titulo, new { @placeholder = "Titulo do Livro", @class = "form-control", @required = true, @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.categoria, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.categoria, new { @placeholder = "Categoria do Livro", @class = "form-control", @required = true, @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.subtitulo, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.subtitulo, new { @placeholder = "Subtitulo do Livro", @class = "form-control", @required = true, @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.editora, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(m => m.editora, new { @placeholder = "Editora do Livro", @class = "form-control", @required = true, @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.isbn, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(m => m.isbn, new { @placeholder = "Nro. ISBN", @class = "form-control", @required = true, @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ano, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-1">
+                        @Html.TextBoxFor(m => m.ano, new { @placeholder = "Código do Aluno", @class = "form-control", @required = true, @maxlength = "4" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.sinopse, new { @class = "col-sm-3 control-label no-padding-right" })
+                    <div class="col-sm-9">
+                        @Html.TextAreaFor(m => m.sinopse, new { @placeholder = "Descreva a sinopse do livro", @class = "form-control", @required = true, @rows = "4" })
+                    </div>
+                </div>
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="submit">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            Salvar
+                        </button>
+
+                        &nbsp; &nbsp; &nbsp;
+                        <a href="/Livro" class="btn">
+                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                            Voltar
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.phone_with_ddd').mask('(00) 0000-0000');
+    });
+</script>

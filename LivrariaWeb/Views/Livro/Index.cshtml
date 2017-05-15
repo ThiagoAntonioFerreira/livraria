@@ -1,0 +1,89 @@
+﻿@model List<LivrariaWeb.Models.LivroModel>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<!-- page specific plugin scripts -->
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+						try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="/">Home</a>
+        </li>
+        <li class="active">Empresas</li>
+    </ul><!-- /.breadcrumb -->
+    <!-- #section:basics/content.searchbox -->
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <a href="/Livro/Livro" class="btn btn-info">
+                        <i class="ace-icon fa fa-plus-circle bigger-110"></i>
+                        Novo
+                    </a>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-xs-12">
+                    <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Categoria</th>
+                                <th>Subtitulo</th>
+                                <th>Ano</th>
+                                <th>Série</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        @if (Model != null)
+                        {
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.titulo</td>
+                                        <td>@item.categoria</td>
+                                        <td>@item.subtitulo</td>
+                                        <td>@item.ano</td>
+                                        <td>@item.editora</td>
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+
+                                                <a href="/Livro/Livro?id=@item.id_livro" class="btn btn-xs btn-info">
+                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                </a>
+
+                                                <a href="/Livro/Visualizar?id=@item.id_livro" class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        var oTable1 =
+        $('#sample-table-1').dataTable({
+            bAutoWidth: false,
+            "order": [[1, "asc"]]
+        });
+    })
+</script>
