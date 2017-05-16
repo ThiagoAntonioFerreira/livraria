@@ -19,16 +19,3 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LivrariaEntity.Script
-{
-    class Class1
-    {
-    }
-}
